@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ format('env-{0}', github.ref_name) }}
     env:
-      - ENV: 'dev'
+      ENV: 'dev'
     steps:
       - run: echo "IT WORKED!"
       - name: Dynamic Variables
         run: echo Setting dynamic variables
         if: github.ref_name == 'main'
         env:
-          - ENV: 'prd'
+          ENV: 'prd'
       - run: eco ${{ ENV }}
