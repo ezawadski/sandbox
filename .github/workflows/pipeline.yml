@@ -17,4 +17,4 @@ jobs:
         if: github.ref_name == 'main'
         env:
           ENV: 'prd'
-      - run: eco ${{ env.ENV }}
+      - run: echo ${{ env.ENV }}
