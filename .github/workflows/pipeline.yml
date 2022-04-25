@@ -1,0 +1,12 @@
+name: Pipeline for Testing
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    environment: ${{ github.ref == 'refs/heads/main' ? 'main' : 'dev' }}
+    steps:
+      - run: echo "IT WORKED!"
