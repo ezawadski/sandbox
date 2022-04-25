@@ -8,5 +8,12 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     environment: ${{ format('env-{0}', github.ref_name) }}
+    env:
+      - ENV: 'dev'
     steps:
       - run: echo "IT WORKED!"
+      - name: Dynamic Variables
+        if: github.ref_name == 'main'
+        env:
+          - ENV: 'prd'
+      - run: eco ${{ ENV }}
