@@ -7,6 +7,6 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
-    environment: ${{ github.ref == 'refs/heads/main' ? 'main' : 'dev' }}
+    environment: ${{ format('env-{0}', github.ref_name) }}
     steps:
       - run: echo "IT WORKED!"
