@@ -13,6 +13,7 @@ jobs:
     steps:
       - run: echo "IT WORKED!"
       - name: Dynamic Variables
+        run: echo Setting dynamic variables
         if: github.ref_name == 'main'
         env:
           - ENV: 'prd'
